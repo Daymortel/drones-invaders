@@ -1,0 +1,4 @@
+.import/
+build/
+*.translation
+default_env.tres
