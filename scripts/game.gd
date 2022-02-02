@@ -5,6 +5,8 @@ export(PackedScene) var mob_scene
 export(PackedScene) var gregoire_scene
 var mob = null
 
+var life = 5
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("click"):
 		var bullet = bullet_ressource.instance()
@@ -38,3 +40,6 @@ func _on_MobSpawnTimer_timeout():
 	# Choose the velocity.
 	var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
+
+func _on_Player_hit():
+	pass

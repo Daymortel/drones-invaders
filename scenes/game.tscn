@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/game/background.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/drone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/gregoire.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/music/game.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/game/lifebar.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 519.5, 36 )
@@ -17,6 +19,10 @@ extents = Vector2( 10, 266.5 )
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 88, 0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 7 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -60,6 +66,44 @@ curve = SubResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 545, 485 )
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="HUD"]
+margin_left = 632.0
+margin_top = 32.0
+margin_right = 704.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 4 )
+text = "VIE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar1" type="Sprite" parent="HUD"]
+position = Vector2( 773, 43 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+
+[node name="LifeBar2" type="Sprite" parent="HUD"]
+position = Vector2( 821, 43 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+
+[node name="LifeBar3" type="Sprite" parent="HUD"]
+position = Vector2( 869, 43 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+
+[node name="LifeBar4" type="Sprite" parent="HUD"]
+position = Vector2( 917, 43 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+
+[node name="LifeBar5" type="Sprite" parent="HUD"]
+position = Vector2( 965, 43 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+
 [node name="MobSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
@@ -68,4 +112,5 @@ autostart = true
 stream = ExtResource( 6 )
 autoplay = true
 
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_MobSpawnTimer_timeout"]
