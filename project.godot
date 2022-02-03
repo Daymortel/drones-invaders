@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Drones Invaders"
 run/main_scene="res://scenes/menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/drone/drone_repos.png"
 
 [autoload]
 
