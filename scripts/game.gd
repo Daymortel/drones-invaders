@@ -5,8 +5,10 @@ export(PackedScene) var mob_scene
 export(PackedScene) var gregoire_scene
 var mob = null
 
+var life = 5
+
 func _physics_process(delta):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and life > 0:
 		var bullet = bullet_ressource.instance()
 		add_child(bullet)
 
@@ -38,3 +40,16 @@ func _on_MobSpawnTimer_timeout():
 	# Choose the velocity.
 	var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
+
+func _on_Player_hit():
+	var bar_id = get_node("HUD/LifeBar" + str(life))
+	bar_id.queue_free()
+	life -= 1
+	
+	if life == 0:
+		$Player.queue_free()
+		$HUD/GameOver.show()
+		$GameOverTimer.start()
+
+func _on_GameOverTimer_timeout():
+	get_tree().change_scene("res://scenes/menu.tscn")
