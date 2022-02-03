@@ -32,4 +32,4 @@ func _physics_process(delta):
 
 func _on_triger_body_entered(body):
 	emit_signal("hit")
-	body.explode()
+	body.explode_but_no_score()
