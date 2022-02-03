@@ -84,6 +84,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Score" type="Label" parent="HUD"]
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 4 )
+text = "SCORE :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreValue" type="Label" parent="HUD"]
+margin_left = 186.0
+margin_top = 32.0
+margin_right = 346.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 4 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LifeBar1" type="Sprite" parent="HUD"]
 position = Vector2( 773, 43 )
 scale = Vector2( 0.1, 0.1 )
@@ -127,6 +150,9 @@ __meta__ = {
 wait_time = 3.0
 autostart = true
 
+[node name="AddScoreTimer" type="Timer" parent="."]
+autostart = true
+
 [node name="GameOverTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -138,4 +164,5 @@ autoplay = true
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_MobSpawnTimer_timeout"]
+[connection signal="timeout" from="AddScoreTimer" to="." method="_on_AddScoreTimer_timeout"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

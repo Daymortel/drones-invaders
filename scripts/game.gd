@@ -6,6 +6,7 @@ export(PackedScene) var gregoire_scene
 var mob = null
 
 var life = 5
+var score = 0
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("click") and life > 0:
@@ -53,3 +54,11 @@ func _on_Player_hit():
 
 func _on_GameOverTimer_timeout():
 	get_tree().change_scene("res://scenes/menu.tscn")
+
+func add_score(points):
+	score += points
+	$HUD/ScoreValue.text = str(score)
+
+func _on_AddScoreTimer_timeout():
+	if life > 0:
+		add_score(10)
