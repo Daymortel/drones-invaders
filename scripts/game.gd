@@ -54,6 +54,7 @@ func _on_Player_hit():
 		
 		if score > Global.highscore:
 			save_highscore() #Sauvegarde le record
+			SilentWolf.Scores.persist_score(Global.player_name, score) #Inscrit votre record dans les classements
 
 func _on_GameOverTimer_timeout():
 	get_tree().change_scene("res://scenes/menu.tscn")
