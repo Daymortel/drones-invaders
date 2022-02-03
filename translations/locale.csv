@@ -4,6 +4,7 @@ MENU_QUIT,Quitter,Quit
 MENU_SETTINGS,Paramètres,Settings
 MENU_HIGHSCORE,Meilleur score:,High score:
 MENU_LEADERBOARD,Classements,Leaderboard
+MENU_AUTHORS,par Daymortel et djalexkidd,by Daymortel and djalexkidd
 SETTINGS_TITLE,Paramètres,Settings
 SETTINGS_FULLSCREEN,Plein Écran,Full Screen
 SETTINGS_GREGOIRE,Mode Grégoire,Gregoire Mod
