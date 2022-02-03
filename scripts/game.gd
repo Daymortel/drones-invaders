@@ -51,6 +51,9 @@ func _on_Player_hit():
 		$Player.queue_free()
 		$HUD/GameOver.show()
 		$GameOverTimer.start()
+		
+		if score > Global.highscore:
+			save_highscore() #Sauvegarde le record
 
 func _on_GameOverTimer_timeout():
 	get_tree().change_scene("res://scenes/menu.tscn")
@@ -62,3 +65,14 @@ func add_score(points):
 func _on_AddScoreTimer_timeout():
 	if life > 0:
 		add_score(10)
+
+# Sauvegarde le meilleur score
+func save_highscore():
+	var data = {
+		"highscore" : score
+	}
+	
+	var save_file = File.new()
+	save_file.open("user://highscore.json", File.WRITE)
+	save_file.store_line(to_json(data))
+	save_file.close()

@@ -2,6 +2,8 @@
 MENU_PLAY,Jouer,Play
 MENU_QUIT,Quitter,Quit
 MENU_SETTINGS,Paramètres,Settings
+MENU_HIGHSCORE,Meilleur score:,High score:
+MENU_LEADERBOARD,Classements,Leaderboard
 SETTINGS_TITLE,Paramètres,Settings
 SETTINGS_FULLSCREEN,Plein Écran,Full Screen
 SETTINGS_GREGOIRE,Mode Grégoire,Gregoire Mod
