@@ -66,6 +66,8 @@ func add_score(points):
 func _on_AddScoreTimer_timeout():
 	if life > 0:
 		add_score(10)
+	if score % 1000 == 0:
+		$MobSpawnTimer.wait_time /= 2
 
 # Sauvegarde le meilleur score
 func save_highscore():
