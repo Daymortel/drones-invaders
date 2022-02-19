@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/game/background.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://assets/music/game.mp3" type="AudioStream" id=6]
 [ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/game/lifebar.png" type="Texture" id=8]
+[ext_resource path="res://assets/touch_controls/arrowLeft.png" type="Texture" id=9]
+[ext_resource path="res://assets/touch_controls/arrowRight.png" type="Texture" id=10]
+[ext_resource path="res://assets/touch_controls/spr_A_button_0.png" type="Texture" id=11]
+[ext_resource path="res://assets/touch_controls/spr_B_button_0.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 519.5, 36 )
@@ -145,6 +149,45 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TouchControls" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TouchScreenButton" parent="HUD/TouchControls"]
+modulate = Color( 1, 1, 1, 0.352941 )
+position = Vector2( 16, 496 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 9 )
+passby_press = true
+action = "ui_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="HUD/TouchControls"]
+modulate = Color( 1, 1, 1, 0.352941 )
+position = Vector2( 144, 496 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 10 )
+passby_press = true
+action = "ui_right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="HUD/TouchControls"]
+modulate = Color( 1, 1, 1, 0.352941 )
+position = Vector2( 888, 464 )
+normal = ExtResource( 11 )
+action = "ui_up"
+visibility_mode = 1
+
+[node name="Shoot" type="TouchScreenButton" parent="HUD/TouchControls"]
+modulate = Color( 1, 1, 1, 0.352941 )
+position = Vector2( 736, 464 )
+normal = ExtResource( 12 )
+action = "click"
+visibility_mode = 1
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
