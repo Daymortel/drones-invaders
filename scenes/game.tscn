@@ -11,7 +11,6 @@
 [ext_resource path="res://assets/touch_controls/arrowLeft.png" type="Texture" id=9]
 [ext_resource path="res://assets/touch_controls/arrowRight.png" type="Texture" id=10]
 [ext_resource path="res://assets/touch_controls/spr_A_button_0.png" type="Texture" id=11]
-[ext_resource path="res://assets/touch_controls/spr_B_button_0.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 519.5, 36 )
@@ -31,6 +30,9 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=5]
 size = 128
 font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 512, 300 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -183,9 +185,8 @@ action = "ui_up"
 visibility_mode = 1
 
 [node name="Shoot" type="TouchScreenButton" parent="HUD/TouchControls"]
-modulate = Color( 1, 1, 1, 0.352941 )
-position = Vector2( 736, 464 )
-normal = ExtResource( 12 )
+shape = SubResource( 6 )
+shape_visible = false
 action = "click"
 visibility_mode = 1
 
