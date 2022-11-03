@@ -7,6 +7,7 @@ var mob = null
 
 var life = 5
 var score = 0
+var score_to_next_level = 1000
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("click") and life > 0:
@@ -66,8 +67,9 @@ func add_score(points):
 func _on_AddScoreTimer_timeout():
 	if life > 0:
 		add_score(10)
-	if score % 1000 == 0:
+	if score >= score_to_next_level:
 		$MobSpawnTimer.wait_time /= 2
+		score_to_next_level += score_to_next_level
 
 # Sauvegarde le meilleur score
 func save_highscore():
